@@ -1,0 +1,87 @@
+/**
+ * Connection indicator styles.
+ * 
+ * Design: Small, unobtrusive badge with clear visual states.
+ * Position: Fixed top-right for constant visibility.
+ */
+
+.connection-indicator {
+  // Badge container
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    // Connected state (green)
+    &--connected {
+      border: 2px solid #4caf50;
+      color: #4caf50;
+      
+      .connection-indicator__dot {
+        background-color: #4caf50;
+      }
+    }
+    
+    // Connecting state (yellow with pulse animation)
+    &--connecting {
+      border: 2px solid #ff9800;
+      color: #ff9800;
+      animation: pulse 1.5s infinite;
+      
+      .connection-indicator__dot {
+        background-color: #ff9800;
+      }
+    }
+    
+    // Reconnecting state (yellow with pulse animation)
+    &--reconnecting {
+      border: 2px solid #ff9800;
+      color: #ff9800;
+      animation: pulse 1.5s infinite;
+      
+      .connection-indicator__dot {
+        background-color: #ff9800;
+      }
+    }
+    
+    // Disconnected state (red)
+    &--disconnected {
+      border: 2px solid #f44336;
+      color: #f44336;
+      
+      .connection-indicator__dot {
+        background-color: #f44336;
+      }
+    }
+  }
+  
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  &__label {
+    white-space: nowrap;
+  }
+}
+
+// Pulse animation for connecting/reconnecting states
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}

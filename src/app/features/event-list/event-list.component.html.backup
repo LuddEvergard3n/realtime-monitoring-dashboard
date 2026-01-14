@@ -1,0 +1,53 @@
+<!--
+  Event list with CDK Virtual Scroll.
+  
+  Performance characteristics:
+  - Only renders visible items (viewport optimization)
+  - Maintains constant frame rate regardless of dataset size
+  - Smooth scrolling with minimal memory footprint
+-->
+
+<div class="event-list">
+  <!-- Header -->
+  <div class="event-list__header">
+    <h2 class="event-list__title">Live Events</h2>
+    <span class="event-list__count">{{ events().length }} events</span>
+  </div>
+  
+  <!-- Virtual scrolling viewport -->
+  <cdk-virtual-scroll-viewport 
+    [itemSize]="ITEM_SIZE" 
+    class="event-list__viewport">
+    
+    <!-- Empty state -->
+    @if (events().length === 0) {
+      <div class="event-list__empty">
+        <p>No events to display</p>
+        <small>Waiting for incoming events...</small>
+      </div>
+    }
+    
+    <!-- Event cards (virtualized) -->
+    <div 
+      *cdkVirtualFor="let event of events(); trackBy: trackByEventId"
+      class="event-card">
+      
+      <!-- Severity badge -->
+      <div class="event-card__severity" [ngClass]="getSeverityClass(event.severity)">
+        {{ event.severity }}
+      </div>
+      
+      <!-- Event content -->
+      <div class="event-card__content">
+        <!-- Timestamp and source -->
+        <div class="event-card__meta">
+          <span class="event-card__timestamp">{{ formatTimestamp(event.timestamp) }}</span>
+          <span class="event-card__source">{{ event.source }}</span>
+        </div>
+        
+        <!-- Message -->
+        <p class="event-card__message">{{ event.message }}</p>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>

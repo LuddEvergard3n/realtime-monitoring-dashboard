@@ -1,0 +1,48 @@
+<!--
+  Metrics panel displaying aggregate statistics.
+  
+  Layout: Horizontal cards showing key metrics.
+  Updates automatically via computed signals.
+-->
+
+<div class="metrics-panel">
+  <!-- Total events metric -->
+  <div class="metric-card metric-card--total">
+    <div class="metric-card__content">
+      <div class="metric-card__label">Total Events</div>
+      <div class="metric-card__value">{{ metrics().totalEvents }}</div>
+    </div>
+  </div>
+  
+  <!-- Events per second metric -->
+  <div class="metric-card metric-card--rate">
+    <div class="metric-card__content">
+      <div class="metric-card__label">Events/sec</div>
+      <div class="metric-card__value">{{ formatRate(metrics().eventsPerSecond) }}</div>
+    </div>
+  </div>
+  
+  <!-- INFO events count -->
+  <div class="metric-card" [ngClass]="getSeverityClass('info')">
+    <div class="metric-card__content">
+      <div class="metric-card__label">INFO</div>
+      <div class="metric-card__value">{{ metrics().eventsBySeverity.INFO }}</div>
+    </div>
+  </div>
+  
+  <!-- WARNING events count -->
+  <div class="metric-card" [ngClass]="getSeverityClass('warning')">
+    <div class="metric-card__content">
+      <div class="metric-card__label">WARNING</div>
+      <div class="metric-card__value">{{ metrics().eventsBySeverity.WARNING }}</div>
+    </div>
+  </div>
+  
+  <!-- ERROR events count -->
+  <div class="metric-card" [ngClass]="getSeverityClass('error')">
+    <div class="metric-card__content">
+      <div class="metric-card__label">ERROR</div>
+      <div class="metric-card__value">{{ metrics().eventsBySeverity.ERROR }}</div>
+    </div>
+  </div>
+</div>

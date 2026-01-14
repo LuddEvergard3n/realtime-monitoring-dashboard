@@ -1,0 +1,87 @@
+/**
+ * Dashboard layout styles.
+ * 
+ * Design principles:
+ * - Professional enterprise aesthetic
+ * - Responsive grid layout
+ * - Clean spacing and visual hierarchy
+ * - Accessibility: sufficient contrast, readable fonts
+ */
+
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  
+  // Connection indicator positioned absolutely
+  .connection-indicator {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+  
+  // Header: Metrics panel
+  &__header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 2rem;
+    flex-shrink: 0;
+  }
+  
+  // Content area: Sidebar + Main
+  &__content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    flex: 1;
+    overflow: hidden;
+    
+    // Responsive: Stack on smaller screens
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+    }
+  }
+  
+  // Sidebar: Filters
+  &__sidebar {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    overflow-y: auto;
+    
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+      
+      &:hover {
+        background: #555;
+      }
+    }
+  }
+  
+  // Main area: Event list
+  &__main {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}

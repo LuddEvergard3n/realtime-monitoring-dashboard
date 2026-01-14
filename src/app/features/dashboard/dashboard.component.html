@@ -1,0 +1,31 @@
+<!-- 
+  Dashboard layout structure.
+  
+  Design: CSS Grid for responsive, professional layout.
+  - Fixed header with metrics and connection status
+  - Sidebar for filters
+  - Main content area with virtual scrolling event list
+-->
+
+<div class="dashboard">
+  <!-- Connection status indicator (fixed position) -->
+  <app-connection-indicator class="connection-indicator"></app-connection-indicator>
+  
+  <!-- Header: Metrics panel -->
+  <header class="dashboard__header">
+    <app-metrics-panel></app-metrics-panel>
+  </header>
+  
+  <!-- Main content area: Grid layout -->
+  <div class="dashboard__content">
+    <!-- Sidebar: Filters -->
+    <aside class="dashboard__sidebar">
+      <app-sidebar></app-sidebar>
+    </aside>
+    
+    <!-- Main area: Event list -->
+    <main class="dashboard__main">
+      <app-event-list></app-event-list>
+    </main>
+  </div>
+</div>

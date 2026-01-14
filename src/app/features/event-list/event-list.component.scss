@@ -1,0 +1,149 @@
+/**
+ * Event list styles - NO VIRTUAL SCROLL VERSION
+ * Guaranteed to work, simple and clean
+ */
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  
+  &__header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  &__count {
+    font-size: 0.875rem;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+  }
+  
+  &__viewport {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column-reverse; // Novos eventos em cima
+  }
+  
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    
+    p {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.125rem;
+    }
+    
+    small {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.event-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem; // Changed from margin-bottom for reverse order
+  background-color: #fafafa;
+  border-radius: 8px;
+  border-left: 4px solid;
+  transition: background-color 0.15s ease;
+  
+  &:hover {
+    background-color: #f0f0f0;
+  }
+  
+  &__severity {
+    flex-shrink: 0;
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: fit-content;
+    
+    &--info {
+      background-color: #e3f2fd;
+      color: #1565c0;
+    }
+    
+    &--warning {
+      background-color: #fff3e0;
+      color: #e65100;
+    }
+    
+    &--error {
+      background-color: #ffebee;
+      color: #c62828;
+    }
+  }
+  
+  // Border color by severity
+  &:has(.event-card__severity--info) {
+    border-left-color: #1565c0;
+  }
+  
+  &:has(.event-card__severity--warning) {
+    border-left-color: #e65100;
+  }
+  
+  &:has(.event-card__severity--error) {
+    border-left-color: #c62828;
+  }
+  
+  &__content {
+    flex: 1;
+  }
+  
+  &__meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  &__timestamp {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+  }
+  
+  &__source {
+    color: #999;
+    
+    &::before {
+      content: '•';
+      margin-right: 0.5rem;
+    }
+  }
+  
+  &__message {
+    margin: 0;
+    color: #333;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+}

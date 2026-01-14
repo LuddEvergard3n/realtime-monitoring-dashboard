@@ -1,0 +1,15 @@
+<!--
+  Connection status indicator.
+  
+  Fixed position badge showing WebSocket connection state.
+  Auto-updates via signal reactivity.
+-->
+
+<div class="connection-indicator">
+  <div 
+    class="connection-indicator__badge"
+    [ngClass]="getStatusClass(connectionStatus())">
+    <span class="connection-indicator__dot"></span>
+    <span class="connection-indicator__label">{{ getStatusLabel(connectionStatus()) }}</span>
+  </div>
+</div>
