@@ -178,7 +178,7 @@ Located in: `src/app/core/services/dashboard-state.service.spec.ts`
 npm test
 ```
 
-## 🛠️ Setup & Installation
+##  Setup & Installation
 
 ### Prerequisites
 - Node.js 18+ 
@@ -374,12 +374,12 @@ This project demonstrates:
 - **No magic numbers:** Constants with clear names
 
 ### Code Review Checklist
-- ✅ All functions commented with purpose
-- ✅ Trade-offs documented
-- ✅ No business logic in components
-- ✅ Immutable state updates
-- ✅ Proper error handling
-- ✅ Tests cover critical paths
+-  All functions commented with purpose
+-  Trade-offs documented
+-  No business logic in components
+-  Immutable state updates
+-  Proper error handling
+-  Tests cover critical paths
 
 ##  Contributing
 
