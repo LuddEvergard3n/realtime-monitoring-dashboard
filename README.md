@@ -1,19 +1,23 @@
 # Real-Time Monitoring Dashboard
 
-A professional, production-grade Angular dashboard for real-time event monitoring via WebSocket. Built with modern Angular patterns (Signals, standalone components) and optimized for performance and maintainability.
+A focused Angular demonstration for real-time event monitoring over WebSocket. It uses Signals, standalone components, bounded in-memory state, and virtual scrolling.
 
-##  Project Objective
+[![Angular](https://img.shields.io/badge/Angular-17-DD0031?logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![RxJS](https://img.shields.io/badge/RxJS-7.8-B7178C?logo=reactivex&logoColor=white)](https://rxjs.dev/)
+[![WebSocket](https://img.shields.io/badge/WebSocket-Live%20events-010101?logo=socketdotio&logoColor=white)](#real-time-event-monitoring)
+[![Tests](https://img.shields.io/badge/Tests-Jasmine-8A4182?logo=jasmine&logoColor=white)](#testing)
 
-Demonstrate advanced Angular engineering skills through a real-time monitoring system that showcases:
+## Project objective
+
+Demonstrate a clear Angular architecture for a real-time monitoring system:
 - Clean, scalable architecture
 - Predictable state management with Signals
 - Performance optimization (virtual scrolling, OnPush)
 - Proper use of RxJS (only where necessary)
 - Production-ready code quality
 
-**Target audience:** Technical recruiters evaluating frontend engineering skills.
-
-##  Architecture
+## Architecture
 
 ### Feature-Based Structure
 ```
@@ -96,7 +100,7 @@ src/app/
 - Server-side pagination
 - Event aggregation/summarization
 
-##  Performance Optimizations
+## Performance optimizations
 
 ### 1. Change Detection Strategy
 - **All components use `OnPush`**
@@ -118,7 +122,7 @@ src/app/
 - `takeUntilDestroyed()` for RxJS cleanup
 - Zero memory leaks
 
-##  Features
+## Features
 
 ### Real-Time Event Monitoring
 - WebSocket connection (mock server included)
@@ -148,7 +152,7 @@ src/app/
 - States: Connected, Connecting, Reconnecting, Disconnected
 - Color-coded with pulse animation
 
-##  Testing
+## Testing
 
 ### State Consistency Tests
 Located in: `src/app/core/services/dashboard-state.service.spec.ts`
@@ -178,7 +182,7 @@ Located in: `src/app/core/services/dashboard-state.service.spec.ts`
 npm test
 ```
 
-##  Setup & Installation
+## Setup and installation
 
 ### Prerequisites
 - Node.js 18+ 
@@ -211,7 +215,7 @@ Dashboard runs on `http://localhost:4200`
 npm test
 ```
 
-##  Project Structure Details
+## Project structure details
 
 ### Type Definitions (`core/models/`)
 - **Immutable by design:** All properties `readonly`
@@ -252,7 +256,7 @@ All components follow:
 - **Standalone** (no NgModule)
 - **Thoroughly commented**
 
-##  Styling Approach
+## Styling approach
 
 ### Design System
 - Professional, enterprise aesthetic
@@ -266,7 +270,7 @@ All components follow:
 - No global styles pollution
 - Responsive breakpoints
 
-##  Intentionally NOT Implemented
+## Intentionally not implemented
 
 ### 1. Backend Integration
 - Mock WebSocket server sufficient for demo
@@ -295,7 +299,7 @@ All components follow:
 - Multiple users viewing same dashboard
 - (Would use shared WebSocket rooms)
 
-##  Trade-Offs & Technical Debt
+## Trade-offs and technical debt
 
 ### Current Limitations
 
@@ -323,7 +327,7 @@ All components follow:
    - **Mitigation:** Console logging for debugging
    - **Future:** Error boundary components, user notifications
 
-##  Performance Benchmarks
+## Performance benchmarks
 
 ### Tested Scenarios
 - **1,000 events:** Smooth scrolling, <50ms frame time
@@ -336,7 +340,7 @@ All components follow:
 - **10,000 events:** ~25MB (with virtual scroll)
 - **Backpressure limit:** Caps at ~20MB (1000 events)
 
-##  Learning Outcomes
+## Learning outcomes
 
 This project demonstrates:
 
@@ -364,7 +368,7 @@ This project demonstrates:
    - Memory management
    - Comprehensive testing
 
-##  Code Quality Standards
+## Code quality standards
 
 ### Enforced Rules
 - **TypeScript strict mode:** Catch errors at compile time
@@ -381,14 +385,14 @@ This project demonstrates:
 -  Proper error handling
 -  Tests cover critical paths
 
-##  Contributing
+## Contributing
 
 This is a portfolio project, but feedback is welcome:
 1. Open an issue for bugs/suggestions
 2. PRs considered for meaningful improvements
 3. Follow existing code style
 
-##  License
+## License
 
 MIT License - use freely for learning and portfolio purposes.
 
